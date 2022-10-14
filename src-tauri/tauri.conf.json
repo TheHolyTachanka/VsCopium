@@ -6,8 +6,8 @@
   "build": {
     "distDir": "../dist",
     "devPath": "http://localhost:5173",
-    "beforeDevCommand": "pnpm vite:dev",
-    "beforeBuildCommand": "pnpm vite:build"
+    "beforeDevCommand": "yarn vite:dev",
+    "beforeBuildCommand": "yarn vite:build"
   },
   "tauri": {
     "bundle": {

@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.3.0",
   "scripts": {
-    "dev": "RUST_BACKTRACE=1 concurrently -k \"tauri dev\" \"pnpm devtools\"",
+    "dev": "tauri dev",
     "build": "tauri build",
-    "vite:dev": "vite dev",
+    "vite:dev": "vite dev --host",
     "vite:build": "vite build",
     "test": "vitest",
     "devtools": "pnpm vue-devtools",
@@ -14,8 +14,19 @@
     "check": "cd src-tauri && cargo check"
   },
   "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.1",
+    "@codemirror/lang-html": "^6.1.2",
+    "@codemirror/lang-javascript": "^6.1.0",
+    "@codemirror/lang-python": "^6.0.2",
+    "@codemirror/lang-rust": "^6.0.0",
+    "@codemirror/theme-one-dark": "^6.1.0",
+    "@lezer/common": "^1.0.1",
     "@tauri-apps/api": "1.1.0",
-    "vue": "3.2.40"
+    "codemirror": "^6.0.1",
+    "daisyui": "^2.31.0",
+    "sass": "^1.49.8",
+    "vue": "3.2.40",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "1.1.1",

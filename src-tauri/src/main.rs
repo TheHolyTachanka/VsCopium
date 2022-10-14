@@ -2,7 +2,7 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-
+use std::fs;
 use tauri::api::shell;
 use tauri::{CustomMenuItem, Manager, Menu, Submenu};
 
@@ -14,10 +14,16 @@ fn backend_add(number: i32) -> i32 {
     number + 2
 }
 
+#[tauri::command]
+fn read_file(file_path: String) -> String {
+    fs::read_to_string(file_path).expect("Failed to read file")
+}
+
 fn main() {
     let ctx = tauri::generate_context!();
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![backend_add])
+        .invoke_handler(tauri::generate_handler![read_file])
         .menu(
             tauri::Menu::os_default("Tauri Vue Template").add_submenu(Submenu::new(
                 "Help",
